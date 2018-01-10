@@ -23,6 +23,12 @@ class Header extends Component{
     handleSubmit(e){
         e.preventDefault();
     }
+
+    // To submit all cart items when Proceed to Checkout button is clicked.
+    submitCart(){
+        console.log("Printing from Proceed to Checkout button: ",this.state.cart);
+        alert(JSON.stringify(this.state.cart, null, 2));
+    }
     handleMobileSearch(e){
         e.preventDefault();
         this.setState({
@@ -122,7 +128,7 @@ class Header extends Component{
                                 {view}
                             </CartScrollBar>
                             <div className="action-block">
-                                <button type="button" className={this.state.cart.length > 0 ? " " : "disabled"}>PROCEED TO CHECKOUT</button>
+                                <button type="button" className={this.state.cart.length > 0 ? " " : "disabled"} onClick={this.submitCart.bind(this)}>PROCEED TO CHECKOUT</button>
                             </div>
                         </div>
                     </div>
